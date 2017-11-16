@@ -9,6 +9,8 @@ scale=1">
 
 <title>Articles</title>
 
+<link href="/css/style.css" rel="stylesheet" />
+
 <link href="/css/bootstrap.css" rel="stylesheet" />
 
 <link href="/css/material-design/bootstrap-material-
@@ -44,6 +46,8 @@ right">
 </div>
 @endif
 @yield("content")
+@include("shared.foot_nav")
+<div class="container clearfix">
 </div>
 </div>
 </div>

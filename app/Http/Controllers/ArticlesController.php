@@ -14,6 +14,11 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // public function __construct() {
+    // $this->middleware('sentinel');
+    // $this->middleware('sentinel.role');
+    // }
+
     public function index()
     {
         $articles = Article::all();
@@ -96,4 +101,8 @@ class ArticlesController extends Controller
         Session::flash("notice", "Article success deleted");
         return redirect()->route("articles.index");
     }
+
+    // public function __construct() {
+    // $this->middleware('sentinel');
+    // }
 }
