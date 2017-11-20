@@ -27,11 +27,10 @@ rel="stylesheet" />
 <div class="container clearfix">
 <div class="row row-offcanvas row-offcanvas-left ">
 <!--Bagian Kiri-->
-@include("shared.left_nav")
+<!-- @include("shared.left_nav")
 <!--Bagian Kanan-->
 
-<div id="main-content" class="col-xs-12 col-sm-9 main pull-
-right">
+<div id="main-content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
 <div class="panel-body">
 @if (Session::has('error'))
@@ -46,8 +45,9 @@ right">
 </div>
 @endif
 @yield("content")
-@include("shared.foot_nav")
+
 <div class="container clearfix">
+	@include("shared.foot_nav")
 </div>
 </div>
 </div>

@@ -2,7 +2,10 @@
 @section("content")
 <div class="row">
 <h2 class="pull-left">List Articles</h2>
-{!! link_to(route("articles.create"), "Create", ["class"=>"pull-right btn btn-raised btn-primary"])!!}
+<br>
+<div class="col-lg-2">
+{!! link_to(route("articles.create"), "Create new Article", ["class"=>"pull-right btn btn-raised btn-success"])!!}
+</div>
 </div>
 @include('articles.list')
 @stop

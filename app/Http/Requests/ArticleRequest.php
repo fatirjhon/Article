@@ -26,14 +26,16 @@ class ArticleRequest extends FormRequest
         $id = $this->article;
         return [
             'title' => 'required|unique:articles,title|max:255',
-            'content' => 'required|unique:articles,content|min:50'
+            'content' => 'required|unique:articles,content|min:50',
+            'image' => 'required|image|mimes:jpg,jpeg,png|max:2000'
         ];
     }
     public function messages()
     {
         return [
         'title.required' => 'Title is required, at least fill a character',
-        'title.unique' => 'Title must unique, take another title'
+        'title.unique' => 'Title must unique, take another title',
+        'image.required' => 'Image must upload'
         ];
     }
 }

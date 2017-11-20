@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $fillable = [
-	'title', 'content'
+    protected $fillable = [ //mendaftarkan atribut untuk kolom yg diisi
+	'title', 'content', 'image'
 	];
 
 	public static function valid() {
 	return array(
-	'content' => 'required'
+	'content' => 'required',
 	);
 	}
 

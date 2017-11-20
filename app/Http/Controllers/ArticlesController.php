@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Article;
+use App\Article;    //wajib diload
 use App\Http\Requests\ArticleRequest;
 use Session;
 
@@ -21,7 +21,7 @@ class ArticlesController extends Controller
 
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::latest()->get();
         return view('articles.index')->with('articles', $articles);
     }
 
@@ -41,9 +41,13 @@ class ArticlesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
-        Article::create($request->all());
+        $data['title'] = $request->title;
+        $data['content'] = $request->content;
+        $data['image'] = time().'.'.$request->image->getClientOriginalExtension();
+        $request->image->move(public_path('images'), $data['image']);
+        Article::create($data);
         Session::flash("notice", "Article success created");
         return redirect()->route("articles.index");
     }

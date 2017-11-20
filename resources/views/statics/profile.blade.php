@@ -2,8 +2,9 @@
 
 @section('content')
     
-
-      <div class="row">
+<div class="row">
+  <div class="col-lg-2"></div>
+    <div class="col-lg-8">
       <table class="table table-striped">
     <tbody>
     <tr>
@@ -24,7 +25,8 @@
     </tr>
     </tbody>
     </table>
-    </div>
-    </div>
+  </div>
+  <div class="col-lg-2"></div>
+</div>
 
 @endsection
