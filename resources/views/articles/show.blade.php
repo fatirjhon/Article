@@ -13,7 +13,7 @@
 </div>
 
 <div class="col-lg-12">
-{!! Form::open(array('route' => array('articles.destroy', $article->id), 'method' => 'delete')) !!}
+{!! Form::open(array('route' => array('articles.destroy', $article->id), 'method' => 'delete', 'files' => 'true')) !!}
 {!! link_to(route('articles.index'), "Back", ['class' => 'btn btn-raised btn-info']) !!}
 {!! link_to(route('articles.edit', $article->id), 'Edit', ['class'=> 'btn btn-raised btn-warning']) !!}
 {!! Form::submit('Delete', array('class' => 'btn btn-raised btn-danger', "onclick" => "return confirm('are you sure?')")) !!}

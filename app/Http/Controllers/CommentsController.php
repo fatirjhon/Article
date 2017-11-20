@@ -11,7 +11,7 @@ use App\Comment, App\Article;
 use Session;
 
 class CommentsController extends Controller
-{ public function store(Request $request) {
+{ 	public function store(Request $request) {
     $validate = Validator::make($request->all(), Comment::valid());
 	if($validate->fails()) {
 		return Redirect::to('articles/'. $request->article_id)
