@@ -3,7 +3,9 @@
 @section('content')
     
 <div class="row">
-  <div class="col-lg-2"></div>
+  <div class="col-lg-4">
+    <img src="source_img/2.jpg" width="440" height="" class="img-rounded"  alt="muka">
+  </div>
     <div class="col-lg-8">
       <table class="table table-striped">
     <tbody>
@@ -26,7 +28,6 @@
     </tbody>
     </table>
   </div>
-  <div class="col-lg-2"></div>
 </div>
 
 @endsection

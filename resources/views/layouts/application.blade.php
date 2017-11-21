@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" href="{{{ asset('source_img/favicon.png') }}}">
 <meta charset="utf-8">
 <meta httpequiv="XUACompatible" content="IE=edge">
 
@@ -58,4 +59,5 @@ rel="stylesheet" />
 <script src="/js/material-design/ripples.js"></script>
 <script src="/js/custom/layout.js"></script>
 </body>
+
 </html>

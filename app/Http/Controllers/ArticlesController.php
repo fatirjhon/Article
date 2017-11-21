@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Article;    //wajib diload
+use App\Article;   //wajib diload
 use App\Http\Requests\ArticleRequest;
 use Session;
 use File;
+use DB;
 
 class ArticlesController extends Controller
 {
@@ -90,13 +91,13 @@ class ArticlesController extends Controller
     public function update(Request $request, $id)
     {
         $result = Article::find($id);
-        $data['title'] = $request->title;
-        $data['content'] = $request->content;
-        $data['image'] = $result->image;
+        $input['title'] = $request->title;
+        $input['content'] = $request->content;
+        $input['image'] = $result->image;
         if ($request->image !=null) {
-            $request->image->move(public_path('images'), $data['image']);
+            $request->image->move(public_path('images'), $input['image']);
         }
-        Article::find($id)->update($request->all());
+        Article::find($id)->update($input);
         Session::flash("notice", "Article success updated");
         return redirect()->route("articles.show", $id);
     }
@@ -113,13 +114,15 @@ class ArticlesController extends Controller
         if(\File::exists(public_path('images/'.$result->image))){
               \File::delete(public_path('images/'.$result->image));
             }
+
+        DB::table('comments')->where('article_id', '=', $id)->delete();
         Article::destroy($id);
         Session::flash("notice", "Article success deleted");
         return redirect()->route("articles.index");
-        $resultcomment = Article::find($id);
-        if (Article::destroy($id)) {
-            Comment::destroy($article_id);
-        }
+
+        //  if (Article::destroy($id)) {
+        //  Comment::destroy($article_id);
+        // }
     }
 
     // public function __construct() {
