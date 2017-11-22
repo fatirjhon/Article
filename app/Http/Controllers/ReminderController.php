@@ -35,7 +35,7 @@ class ReminderController extends Controller
 	}
 	else {
 	return redirect('/');
-	}
+	}}
 
 	public function update(ReminderRequest $request, $id, $code) {
 	$user = Sentinel::findById($id);
@@ -48,5 +48,4 @@ class ReminderController extends Controller
 	Session::flash('error', 'Passwords must match.');
 	}
 	}
-}
 }

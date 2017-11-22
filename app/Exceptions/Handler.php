@@ -62,4 +62,9 @@ class Handler extends ExceptionHandler
 
         return redirect()->guest('login');
     }
+
+    public function renderForConsole($output, Exception $e){
+    throw $e;
+    }
+
 }
